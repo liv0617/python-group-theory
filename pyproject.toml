@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "group_theory"
+version = "0.1.0"
+description = ""
+authors = [{name = "Liv Gorton", email = "liv@livgorton.com"}]
+readme = "README.md"
+requires-python = ">=3.10"
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools.packages.find]
+where = ["src"]  # adjust if your package is not in a src directory
+include = ["*"]
+exclude = ["tests*"]
