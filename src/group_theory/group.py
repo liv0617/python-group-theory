@@ -21,6 +21,9 @@ class Group:
                     return False
         
         return True
+    
+    def element(self, value):
+        return GroupElement(value, self)
 
     def elements(self):
         return [GroupElement(element, self) for element in self.element_values]
@@ -134,6 +137,9 @@ class GroupElement:
 
     def __repr__(self):
         return f"GroupElement({self.element}, {self.group})"
+    
+    def __hash__(self):
+      return hash((self.element, id(self.group)))
 
     def inverse(self):
         return self.group.inverse(self.element)
